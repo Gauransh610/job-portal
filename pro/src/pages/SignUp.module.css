@@ -1,0 +1,471 @@
+/* ─── ROOT: Full page, scrollable right side ─── */
+.root {
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ─── LEFT panel (decorative, sticky) ─── */
+.left {
+    width: 400px;
+    flex-shrink: 0;
+    background: linear-gradient(160deg, #1e1b4b 0%, #312e81 45%, #0f766e 100%);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.leftInner {
+    padding: 48px 36px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+}
+
+.brandIcon {
+    font-size: 22px;
+}
+
+.brandName {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.brandAi {
+    color: #6ee7b7;
+}
+
+.leftHeading {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.leftSub {
+    font-size: 14px;
+    color: rgba(255, 255, 255, .65);
+    line-height: 1.7;
+    margin-bottom: 36px;
+}
+
+.perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.perk {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, .8);
+    line-height: 1.5;
+}
+
+.perkIcon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.socialRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.socialBadge {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50px;
+    padding: 5px 14px;
+}
+
+/* ─── RIGHT panel (scrollable) ─── */
+.right {
+    flex: 1;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 48px 24px 80px;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+/* Card */
+.card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 36px 36px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 4px 24px rgba(15, 23, 42, .08);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+/* Lock icon */
+.iconWrap {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: #3b4a6b;
+}
+
+.heading {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-h);
+    margin-bottom: 6px;
+}
+
+.sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+/* Role toggle */
+.roleToggle {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 10px;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 28px;
+}
+
+.roleBtn {
+    flex: 1;
+    padding: 9px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    transition: background .15s, color .15s;
+}
+
+.roleActive {
+    background: var(--bg);
+    color: var(--text-h);
+    box-shadow: 0 1px 4px rgba(15, 23, 42, .1);
+}
+
+/* Form */
+.form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ✅ FIX: use minmax(0, 1fr) so columns can shrink below content size */
+.row2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+}
+
+/* ✅ FIX: prevent fieldGroup from overflowing its grid cell */
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+.inputWrap {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 0 12px;
+    gap: 10px;
+    transition: border-color .18s, box-shadow .18s;
+    min-width: 0;
+}
+
+.inputWrap:focus-within {
+    border-color: #3b5baf;
+    box-shadow: 0 0 0 3px rgba(59, 91, 175, .12);
+}
+
+.inputIcon {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* ✅ FIX: min-width: 0 and width: 100% prevent input from pushing layout */
+.input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: var(--text-h);
+    padding: 12px 0;
+    font-family: 'Inter', sans-serif;
+    min-width: 0;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: #94a3b8;
+}
+
+.eyeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-shrink: 0;
+    transition: color .15s;
+}
+
+.eyeBtn:hover {
+    color: var(--text);
+}
+
+/* Checkbox */
+.checkRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: #3b5baf;
+}
+
+.checkText {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.checkLink {
+    color: #3b5baf;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkLink:hover {
+    text-decoration: underline;
+}
+
+/* Sign Up button */
+.signUpBtn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: opacity .18s, transform .15s;
+}
+
+.signUpBtn:hover {
+    opacity: .9;
+    transform: translateY(-1px);
+}
+
+.signUpBtn:active {
+    transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #94a3b8;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* OAuth */
+.oauthRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.oauthBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 8px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    background: var(--bg);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.oauthBtn:hover {
+    border-color: #94a3b8;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, .08);
+}
+
+/* Switch */
+.switchText {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.switchLink {
+    font-weight: 700;
+    color: var(--text-h);
+    text-decoration: none;
+}
+
+.switchLink:hover {
+    text-decoration: underline;
+}
+
+/* ─── TABLET ≤ 768px ─── */
+@media (max-width: 768px) {
+    .left {
+        display: none;
+    }
+
+    .right {
+        padding: 32px 20px 60px;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 480px;
+    }
+}
+
+/* ─── MOBILE ≤ 480px ─── */
+@media (max-width: 480px) {
+    .right {
+        padding: 24px 14px 48px;
+    }
+
+    .card {
+        padding: 24px 16px 22px;
+        border-radius: 16px;
+        max-width: 100%;
+    }
+
+    .heading {
+        font-size: 20px;
+    }
+
+    .sub {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .iconWrap {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+    }
+
+    .row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .roleToggle {
+        margin-bottom: 20px;
+    }
+
+    .roleBtn {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .input {
+        font-size: 13.5px;
+        padding: 10px 0;
+    }
+
+    .oauthRow {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .oauthBtn {
+        padding: 10px 12px;
+        font-size: 12.5px;
+    }
+
+    .signUpBtn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .switchText {
+        font-size: 13px;
+    }
+
+    .checkText {
+        font-size: 12px;
+    }
+}

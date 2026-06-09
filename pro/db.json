@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "1775576650235",
+      "firstName": "Abc",
+      "lastName": "Dw",
+      "email": "abc@gmail.com",
+      "password": "12345678",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1775586196072",
+      "firstName": "asdfghj",
+      "lastName": "sdfghj",
+      "email": "ab@gmail.com",
+      "password": "1234567890",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1775586235746",
+      "firstName": "qw",
+      "lastName": "qwe",
+      "email": "qw@gmail.com",
+      "password": "1234567890",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1775586761561",
+      "firstName": "qw",
+      "lastName": "qwe",
+      "email": "qwe@gmail.com",
+      "password": "12345678",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1775631642581",
+      "firstName": "Ad",
+      "lastName": "Asd",
+      "email": "ad@gmail.com",
+      "password": "qwertyuiop",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1777291115408",
+      "firstName": "qwe",
+      "lastName": "asdf",
+      "email": "a@gmail.com",
+      "password": "1234567890",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1777291585765",
+      "firstName": "asdfg",
+      "lastName": "dfghj",
+      "email": "b@gmail.com",
+      "password": "123456789",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1777291627163",
+      "firstName": "asdf",
+      "lastName": "asdfg",
+      "email": "d@gmail.com",
+      "password": "123456789",
+      "role": "Job Seeker",
+      "company": ""
+    },
+    {
+      "id": "1777292194792",
+      "firstName": "sdf",
+      "lastName": "asdfgh",
+      "email": "q@gmail.com",
+      "password": "1234567890",
+      "role": "Job Seeker",
+      "company": ""
+    }
+  ]
+}

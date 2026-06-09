@@ -1,0 +1,286 @@
+/* ─── ROOT: Fixed full-screen overlay ─── */
+.root {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* prevent page scroll when sign-in is open */
+    overflow: hidden;
+}
+
+/* Blurred background overlay */
+.backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(236, 241, 248, 0.55);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    cursor: pointer;
+}
+
+/* ─── Modal card ─── */
+.card {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 36px 32px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.14), 0 2px 8px rgba(15, 23, 42, 0.06);
+    text-align: center;
+    animation: cardIn .28s cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: scale(.94) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s, color .15s;
+}
+
+.close:hover {
+    background: #f1f5f9;
+    color: var(--text);
+}
+
+/* Lock icon circle */
+.iconWrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    color: #3b4a6b;
+}
+
+/* Headings */
+.heading {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-h);
+    margin-bottom: 6px;
+}
+
+.sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+/* Form */
+.form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+/* Input wrapper */
+.inputWrap {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    padding: 0 12px;
+    gap: 10px;
+    transition: border-color .18s, box-shadow .18s;
+}
+
+.inputWrap:focus-within {
+    border-color: #3b5baf;
+    box-shadow: 0 0 0 3px rgba(59, 91, 175, 0.12);
+}
+
+.inputIcon {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: var(--text-h);
+    padding: 12px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.input::placeholder {
+    color: #94a3b8;
+}
+
+.inputRight {
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.eyeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-shrink: 0;
+    transition: color .15s;
+}
+
+.eyeBtn:hover {
+    color: var(--text);
+}
+
+/* Forgot password */
+.forgotRow {
+    text-align: right;
+    margin-top: -8px;
+}
+
+.forgot {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3b5baf;
+    text-decoration: none;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+/* Sign In button */
+.signInBtn {
+    width: 100%;
+    padding: 13px;
+    background: #5b7096;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background .18s, transform .15s;
+    margin-top: 4px;
+}
+
+.signInBtn:hover {
+    background: #3b4e72;
+    transform: translateY(-1px);
+}
+
+.signInBtn:active {
+    transform: translateY(0);
+}
+
+/* Switch link */
+.switchText {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.switchLink {
+    font-weight: 700;
+    color: var(--text-h);
+    text-decoration: none;
+}
+
+.switchLink:hover {
+    text-decoration: underline;
+}
+
+/* ─── TABLET ≤ 768px ─── */
+@media (max-width: 768px) {
+    .card {
+        max-width: 400px;
+        padding: 36px 28px 28px;
+    }
+}
+
+/* ─── MOBILE ≤ 480px ─── */
+@media (max-width: 480px) {
+    .card {
+        padding: 28px 18px 22px;
+        margin: 0 12px;
+        border-radius: 16px;
+        max-width: 100%;
+    }
+
+    .heading {
+        font-size: 20px;
+    }
+
+    .sub {
+        font-size: 13px;
+        margin-bottom: 22px;
+    }
+
+    .iconWrap {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 14px;
+    }
+
+    .input {
+        font-size: 13.5px;
+        padding: 10px 0;
+    }
+
+    .signInBtn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .switchText {
+        font-size: 13px;
+    }
+}

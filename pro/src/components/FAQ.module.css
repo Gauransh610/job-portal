@@ -1,0 +1,143 @@
+.section {
+    background: var(--surface);
+    padding: 72px 0 80px;
+    border-top: 1px solid var(--border);
+}
+
+.inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.h2 {
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 400;
+    color: var(--text-h);
+    margin-bottom: 32px;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+/* Two-column grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual FAQ item */
+.item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    overflow: hidden;
+    transition: box-shadow .2s;
+}
+
+.item:hover {
+    box-shadow: 0 3px 12px rgba(79, 70, 229, 0.08);
+}
+
+.itemOpen {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .07);
+}
+
+.question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-h);
+    font-family: inherit;
+}
+
+.chevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform .22s ease;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+.answer {
+    padding: 0 18px 16px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+
+/* ─── TABLET ≤ 768px ─── */
+@media (max-width: 768px) {
+    .section {
+        padding: 52px 0 60px;
+    }
+
+    .inner {
+        padding: 0 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+/* ─── MOBILE ≤ 480px ─── */
+@media (max-width: 480px) {
+    .section {
+        padding: 40px 0 48px;
+    }
+
+    .inner {
+        padding: 0 16px;
+    }
+
+    .h2 {
+        font-size: 1.4rem;
+        margin-bottom: 24px;
+    }
+
+    .question {
+        padding: 14px 14px;
+        font-size: 13.5px;
+        gap: 10px;
+    }
+
+    .answer {
+        padding: 0 14px 14px;
+        font-size: 13px;
+        padding-top: 10px;
+    }
+}

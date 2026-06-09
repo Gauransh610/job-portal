@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #f0eeff;
+  --surface: #ffffff;
+
+  /* Brand palette — deep violet + emerald accent + amber CTA */
+  --primary: #4f46e5;
+  /* indigo-600 */
+  --primary-h: #4338ca;
+  /* indigo-700 */
+  --accent: #059669;
+  /* emerald-600 */
+  --accent-lt: #d1fae5;
+  /* emerald-100 */
+
+  --cta: #f59e0b;
+  /* amber */
+  --cta-h: #d97706;
+
+  --text-h: #1e1b4b;
+  /* very dark indigo */
+  --text: #374151;
+  --text-muted: #6b7280;
+  --border: #ddd6fe;
+  /* violet-200 */
+
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+[data-theme='dark'] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --primary: #6366f1;
+  --primary-h: #818cf8;
+  --accent: #10b981;
+  --accent-lt: #064e3b;
+  --cta: #f59e0b;
+  --cta-h: #fbbf24;
+  --text-h: #f1f5f9;
+  --text: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #334155;
+}

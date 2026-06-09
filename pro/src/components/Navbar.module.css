@@ -1,0 +1,330 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 28px;
+    height: 62px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 10px rgba(79, 70, 229, 0.08);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 6px;
+}
+
+.logoIcon {
+    font-size: 22px;
+}
+
+.logoWord {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-h);
+}
+
+.logoAi {
+    color: var(--primary);
+}
+
+/* Nav links */
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+}
+
+.navA {
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 6px 11px;
+    border-radius: 8px;
+    transition: background .18s, color .18s;
+}
+
+.navA:hover {
+    background: #ede9fe;
+    color: var(--primary);
+}
+
+.active {
+    background: #ede9fe !important;
+    color: var(--primary) !important;
+}
+
+/* For Employers pill */
+.pillEmployers {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary);
+    color: #fff !important;
+    padding: 7px 16px !important;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background .2s, transform .15s;
+}
+
+.pillEmployers:hover {
+    background: var(--primary-h) !important;
+    transform: translateY(-1px);
+}
+
+/* Right */
+.navRight {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.divider {
+    width: 1px;
+    height: 18px;
+    background: var(--border);
+    margin: 0 4px;
+}
+
+.btnStarted {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, var(--cta) 0%, var(--cta-h) 100%);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 3px 12px rgba(245, 158, 11, .35);
+    transition: transform .15s, box-shadow .2s;
+}
+
+.btnStarted:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 16px rgba(245, 158, 11, .45);
+}
+
+.arr {
+    display: inline-block;
+    transition: transform .2s;
+}
+
+.btnStarted:hover .arr {
+    transform: translateX(3px);
+}
+
+.btnIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: var(--primary);
+    cursor: pointer;
+    transition: background .18s, transform .2s;
+}
+
+.btnIcon:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: rotate(18deg);
+}
+
+/* ─── Hamburger toggle (hidden on desktop) ─── */
+.hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: #ede9fe;
+    color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .18s;
+}
+
+.hamburger:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ─── Mobile drawer overlay ─── */
+.mobileOverlay {
+    display: none;
+}
+
+.mobileDrawer {
+    display: none;
+}
+
+/* ─── TABLET ≤ 768px ─── */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 16px;
+        height: 56px;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .navA {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .btnStarted {
+        padding: 7px 14px;
+        font-size: 12.5px;
+    }
+
+    /* Mobile overlay + drawer */
+    .mobileOverlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 998;
+    }
+
+    .mobileDrawer {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 260px;
+        height: 100vh;
+        background: var(--surface);
+        border-left: 1px solid var(--border);
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+        padding: 72px 20px 32px;
+        z-index: 999;
+        animation: slideIn .22s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to   { transform: translateX(0); }
+    }
+
+    .mobileDrawer .mobileLink {
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-h);
+        padding: 12px 14px;
+        border-radius: 10px;
+        transition: background .15s;
+    }
+
+    .mobileDrawer .mobileLink:hover {
+        background: #ede9fe;
+        color: var(--primary);
+    }
+
+    .mobileDrawer .mobilePill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--primary);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        text-align: center;
+        justify-content: center;
+        margin-top: 8px;
+        transition: background .2s;
+    }
+
+    .mobileDrawer .mobilePill:hover {
+        background: var(--primary-h);
+    }
+
+    .drawerClose {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: var(--text-muted);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background .15s;
+    }
+
+    .drawerClose:hover {
+        background: #f1f5f9;
+        color: var(--text-h);
+    }
+}
+
+/* ─── MOBILE ≤ 480px ─── */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 12px;
+        height: 52px;
+    }
+
+    .logoWord {
+        font-size: 16px;
+    }
+
+    .logoIcon {
+        font-size: 20px;
+    }
+
+    .btnStarted {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .btnIcon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .hamburger {
+        width: 32px;
+        height: 32px;
+    }
+}
